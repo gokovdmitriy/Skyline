@@ -7,12 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C3160909D477A683F0CEE19 /* Pods_Skyline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFDCB7C55D1482C436979C8 /* Pods_Skyline.framework */; };
 		522C592D2884747E004F739D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C592C2884747E004F739D /* AppDelegate.swift */; };
 		522C592F2884747E004F739D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C592E2884747E004F739D /* SceneDelegate.swift */; };
 		522C59312884747E004F739D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C59302884747E004F739D /* ViewController.swift */; };
 		522C59342884747E004F739D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 522C59322884747E004F739D /* Main.storyboard */; };
 		522C593628847482004F739D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 522C593528847482004F739D /* Assets.xcassets */; };
 		522C593928847482004F739D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 522C593728847482004F739D /* LaunchScreen.storyboard */; };
+		522C5941288482C5004F739D /* AutorizationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C5940288482C5004F739D /* AutorizationScreen.swift */; };
+		522C59432884833F004F739D /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C59422884833F004F739D /* UserInfo.swift */; };
+		522C5945288483DE004F739D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 522C5944288483DE004F739D /* Podfile */; };
+		5262CEC928848E6D00DFFEB2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5262CEC828848E6D00DFFEB2 /* README.md */; };
+		5262CECF288858DE00DFFEB2 /* GetUIDFromSkyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5262CECE288858DE00DFFEB2 /* GetUIDFromSkyline.swift */; };
+		5262CED5288F026A00DFFEB2 /* UserDetailsInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5262CED4288F026A00DFFEB2 /* UserDetailsInformation.swift */; };
+		5262CED7288F134B00DFFEB2 /* PersonalInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5262CED6288F134B00DFFEB2 /* PersonalInformation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,16 @@
 		522C593528847482004F739D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		522C593828847482004F739D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		522C593A28847482004F739D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		522C5940288482C5004F739D /* AutorizationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorizationScreen.swift; sourceTree = "<group>"; };
+		522C59422884833F004F739D /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		522C5944288483DE004F739D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		5262CEC828848E6D00DFFEB2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		5262CECE288858DE00DFFEB2 /* GetUIDFromSkyline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetUIDFromSkyline.swift; path = Skyline/GetUIDFromSkyline.swift; sourceTree = SOURCE_ROOT; };
+		5262CED4288F026A00DFFEB2 /* UserDetailsInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsInformation.swift; sourceTree = "<group>"; };
+		5262CED6288F134B00DFFEB2 /* PersonalInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformation.swift; sourceTree = "<group>"; };
+		C0DEB7628834E41FE30080F2 /* Pods-Skyline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skyline.release.xcconfig"; path = "Target Support Files/Pods-Skyline/Pods-Skyline.release.xcconfig"; sourceTree = "<group>"; };
+		CEFDCB7C55D1482C436979C8 /* Pods_Skyline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Skyline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC6F7CE331AFA0D0204D981B /* Pods-Skyline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skyline.debug.xcconfig"; path = "Target Support Files/Pods-Skyline/Pods-Skyline.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +49,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C3160909D477A683F0CEE19 /* Pods_Skyline.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D899647CF7083337F8709CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEFDCB7C55D1482C436979C8 /* Pods_Skyline.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		37886318EA9501586CCBD014 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FC6F7CE331AFA0D0204D981B /* Pods-Skyline.debug.xcconfig */,
+				C0DEB7628834E41FE30080F2 /* Pods-Skyline.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		522C59202884747E004F739D = {
 			isa = PBXGroup;
 			children = (
+				522C5944288483DE004F739D /* Podfile */,
 				522C592B2884747E004F739D /* Skyline */,
 				522C592A2884747E004F739D /* Products */,
+				37886318EA9501586CCBD014 /* Pods */,
+				1D899647CF7083337F8709CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +95,29 @@
 		522C592B2884747E004F739D /* Skyline */ = {
 			isa = PBXGroup;
 			children = (
+				5262CEC828848E6D00DFFEB2 /* README.md */,
 				522C592C2884747E004F739D /* AppDelegate.swift */,
+				5262CECC2888553E00DFFEB2 /* AuthModelGetUID */,
 				522C592E2884747E004F739D /* SceneDelegate.swift */,
 				522C59302884747E004F739D /* ViewController.swift */,
+				522C59422884833F004F739D /* UserInfo.swift */,
+				5262CED6288F134B00DFFEB2 /* PersonalInformation.swift */,
 				522C59322884747E004F739D /* Main.storyboard */,
 				522C593528847482004F739D /* Assets.xcassets */,
 				522C593728847482004F739D /* LaunchScreen.storyboard */,
 				522C593A28847482004F739D /* Info.plist */,
 			);
 			path = Skyline;
+			sourceTree = "<group>";
+		};
+		5262CECC2888553E00DFFEB2 /* AuthModelGetUID */ = {
+			isa = PBXGroup;
+			children = (
+				5262CED4288F026A00DFFEB2 /* UserDetailsInformation.swift */,
+				522C5940288482C5004F739D /* AutorizationScreen.swift */,
+				5262CECE288858DE00DFFEB2 /* GetUIDFromSkyline.swift */,
+			);
+			path = AuthModelGetUID;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +127,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 522C593D28847482004F739D /* Build configuration list for PBXNativeTarget "Skyline" */;
 			buildPhases = (
+				4C2FEAE659EC154709FA3914 /* [CP] Check Pods Manifest.lock */,
 				522C59252884747E004F739D /* Sources */,
 				522C59262884747E004F739D /* Frameworks */,
 				522C59272884747E004F739D /* Resources */,
+				87662437953DF60A9AC93653 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,19 +182,68 @@
 			files = (
 				522C593928847482004F739D /* LaunchScreen.storyboard in Resources */,
 				522C593628847482004F739D /* Assets.xcassets in Resources */,
+				5262CEC928848E6D00DFFEB2 /* README.md in Resources */,
+				522C5945288483DE004F739D /* Podfile in Resources */,
 				522C59342884747E004F739D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4C2FEAE659EC154709FA3914 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Skyline-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87662437953DF60A9AC93653 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Skyline/Pods-Skyline-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Skyline/Pods-Skyline-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Skyline/Pods-Skyline-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		522C59252884747E004F739D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5262CECF288858DE00DFFEB2 /* GetUIDFromSkyline.swift in Sources */,
 				522C59312884747E004F739D /* ViewController.swift in Sources */,
+				522C59432884833F004F739D /* UserInfo.swift in Sources */,
 				522C592D2884747E004F739D /* AppDelegate.swift in Sources */,
+				5262CED5288F026A00DFFEB2 /* UserDetailsInformation.swift in Sources */,
+				5262CED7288F134B00DFFEB2 /* PersonalInformation.swift in Sources */,
+				522C5941288482C5004F739D /* AutorizationScreen.swift in Sources */,
 				522C592F2884747E004F739D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +388,7 @@
 		};
 		522C593E28847482004F739D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC6F7CE331AFA0D0204D981B /* Pods-Skyline.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -311,6 +416,7 @@
 		};
 		522C593F28847482004F739D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0DEB7628834E41FE30080F2 /* Pods-Skyline.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
