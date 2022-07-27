@@ -1,0 +1,36 @@
+PODS:
+  - Alamofire (5.6.1)
+  - Locksmith (4.0.0)
+  - Realm (10.28.2):
+    - Realm/Headers (= 10.28.2)
+  - Realm/Headers (10.28.2)
+  - RealmSwift (10.28.2):
+    - Realm (= 10.28.2)
+  - SDWebImage (5.13.0):
+    - SDWebImage/Core (= 5.13.0)
+  - SDWebImage/Core (5.13.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - Locksmith
+  - RealmSwift
+  - SDWebImage
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Locksmith
+    - Realm
+    - RealmSwift
+    - SDWebImage
+
+SPEC CHECKSUMS:
+  Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
+  Realm: e617c54ad0f566b3d0f6a2abae7010de05f252ac
+  RealmSwift: 8a516a8759d80d52ebcec1ff1076f5f5159f98b2
+  SDWebImage: 0327043dbb9533e75f2eff8445b3df0f2ceca6ac
+
+PODFILE CHECKSUM: 544f8cbf316d0ec4dc89afdf810a8f0cfb1123e9
+
+COCOAPODS: 1.11.3

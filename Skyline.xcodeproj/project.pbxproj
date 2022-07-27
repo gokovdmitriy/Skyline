@@ -21,6 +21,7 @@
 		5262CECF288858DE00DFFEB2 /* GetUIDFromSkyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5262CECE288858DE00DFFEB2 /* GetUIDFromSkyline.swift */; };
 		5262CED5288F026A00DFFEB2 /* UserDetailsInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5262CED4288F026A00DFFEB2 /* UserDetailsInformation.swift */; };
 		5262CED7288F134B00DFFEB2 /* PersonalInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5262CED6288F134B00DFFEB2 /* PersonalInformation.swift */; };
+		5274314F28915F8000057034 /* UserInternetServicesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274314E28915F8000057034 /* UserInternetServicesModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,11 +35,12 @@
 		522C593A28847482004F739D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		522C5940288482C5004F739D /* AutorizationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorizationScreen.swift; sourceTree = "<group>"; };
 		522C59422884833F004F739D /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
-		522C5944288483DE004F739D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		522C5944288483DE004F739D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5262CEC828848E6D00DFFEB2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		5262CECE288858DE00DFFEB2 /* GetUIDFromSkyline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetUIDFromSkyline.swift; path = Skyline/GetUIDFromSkyline.swift; sourceTree = SOURCE_ROOT; };
 		5262CED4288F026A00DFFEB2 /* UserDetailsInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsInformation.swift; sourceTree = "<group>"; };
 		5262CED6288F134B00DFFEB2 /* PersonalInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformation.swift; sourceTree = "<group>"; };
+		5274314E28915F8000057034 /* UserInternetServicesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInternetServicesModel.swift; sourceTree = "<group>"; };
 		C0DEB7628834E41FE30080F2 /* Pods-Skyline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skyline.release.xcconfig"; path = "Target Support Files/Pods-Skyline/Pods-Skyline.release.xcconfig"; sourceTree = "<group>"; };
 		CEFDCB7C55D1482C436979C8 /* Pods_Skyline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Skyline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC6F7CE331AFA0D0204D981B /* Pods-Skyline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skyline.debug.xcconfig"; path = "Target Support Files/Pods-Skyline/Pods-Skyline.debug.xcconfig"; sourceTree = "<group>"; };
@@ -96,9 +98,10 @@
 			isa = PBXGroup;
 			children = (
 				5262CEC828848E6D00DFFEB2 /* README.md */,
-				522C592C2884747E004F739D /* AppDelegate.swift */,
-				5262CECC2888553E00DFFEB2 /* AuthModelGetUID */,
 				522C592E2884747E004F739D /* SceneDelegate.swift */,
+				522C592C2884747E004F739D /* AppDelegate.swift */,
+				5262CECC2888553E00DFFEB2 /* AutorizationScreen */,
+				5274314B28915EE600057034 /* UserInternetServicesModel */,
 				522C59302884747E004F739D /* ViewController.swift */,
 				522C59422884833F004F739D /* UserInfo.swift */,
 				5262CED6288F134B00DFFEB2 /* PersonalInformation.swift */,
@@ -110,14 +113,22 @@
 			path = Skyline;
 			sourceTree = "<group>";
 		};
-		5262CECC2888553E00DFFEB2 /* AuthModelGetUID */ = {
+		5262CECC2888553E00DFFEB2 /* AutorizationScreen */ = {
 			isa = PBXGroup;
 			children = (
 				5262CED4288F026A00DFFEB2 /* UserDetailsInformation.swift */,
 				522C5940288482C5004F739D /* AutorizationScreen.swift */,
 				5262CECE288858DE00DFFEB2 /* GetUIDFromSkyline.swift */,
 			);
-			path = AuthModelGetUID;
+			path = AutorizationScreen;
+			sourceTree = "<group>";
+		};
+		5274314B28915EE600057034 /* UserInternetServicesModel */ = {
+			isa = PBXGroup;
+			children = (
+				5274314E28915F8000057034 /* UserInternetServicesModel.swift */,
+			);
+			path = UserInternetServicesModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +256,7 @@
 				5262CED7288F134B00DFFEB2 /* PersonalInformation.swift in Sources */,
 				522C5941288482C5004F739D /* AutorizationScreen.swift in Sources */,
 				522C592F2884747E004F739D /* SceneDelegate.swift in Sources */,
+				5274314F28915F8000057034 /* UserInternetServicesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,10 +409,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Skyline/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -410,7 +423,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -425,10 +438,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Skyline/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -438,7 +452,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
