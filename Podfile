@@ -10,4 +10,5 @@ target 'Skyline' do
     pod 'SDWebImage'
     pod 'RealmSwift'
     pod 'Locksmith'
+    pod 'SideMenu'
 end

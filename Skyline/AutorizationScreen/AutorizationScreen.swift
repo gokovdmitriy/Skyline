@@ -12,20 +12,6 @@ class AutorizationScreen: UIViewController {
     @IBOutlet weak var logoImage: UIImageView!
     
     
-    @IBAction func loginButtonPressed(_ sender: Any) {
-        if (login.text != "" || password.text != "") {
-            
-            passwordAutorization()
-            saveLoginAndPassword()
-            print(personalInformation)
-        }
-        else {
-            let alert = UIAlertController(title: "Ошибка", message: "Введите логин и пароль ",
-                                          preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,12 +49,22 @@ class AutorizationScreen: UIViewController {
                                                              internetStatus: 0,
                                                              tpId: 0,
                                                              dayFee: 0)
+    
+    //MARK: - Handlers
+    
     let myCompletionHandler: (Bool) -> Void = { doneWorking in
         if doneWorking {
             print("loginpasswd sent")
         }
     }
-    // MARK: - getUID
+    
+    let readyToPushHandler: (Bool) -> Void = { doneWorking in
+        if doneWorking {
+            print("ready to send")
+        }
+    }
+    
+    // MARK: - passwordAutorization to get UID
     
     func passwordAutorization(){
         
@@ -86,75 +82,38 @@ class AutorizationScreen: UIViewController {
                 self.loginUidSid.uid = responseModel.uid
                 self.loginUidSid.login = responseModel.login
                 self.loginUidSid.sid = responseModel.sid
+                
                 self.myCompletionHandler(true)
-                print(loginUidSid)
-            }
-            self.getUserInformationWithSid(using: myCompletionHandler)
-            self.getUserInternetServicesInfo(using: myCompletionHandler)
-        }
-        
-    }
-    // MARK: - Get personal information
-    
-    func getUserInformationWithSid(using completionHandler: (Bool) -> Void){
-        
-        let urlGetDetails: String = "https://skystat.com/api.cgi/user/"+String(loginUidSid.uid)+"/pi"
-        
-        let headers: HTTPHeaders = [
-            "USERSID": loginUidSid.sid,
-            "content-type": "application/json; charset=utf8"
-        ]
-        
-        AF.request(urlGetDetails, headers: headers).responseJSON { responseSecond in
-            
-            let jsonDecoder = JSONDecoder()
-            do
-            {
-                let responseModelUserInfo = try! jsonDecoder.decode(UserDetailsInformation.self,
-                                                                    from: responseSecond.data!)
-                self.personalInformation.fio = responseModelUserInfo.fio
-                self.personalInformation.login = self.loginUidSid.login
-                self.personalInformation.city = responseModelUserInfo.city
-                self.personalInformation.contractId = responseModelUserInfo.contractId
-                self.personalInformation.phone = responseModelUserInfo.phone
-                self.personalInformation.uid = responseModelUserInfo.uid
-                self.personalInformation.email = responseModelUserInfo.email
-                self.personalInformation.addressFull = responseModelUserInfo.addressFull
-                print(self.personalInformation)
                 
             }
+            pushToProfileViewController(using: readyToPushHandler)
         }
+        
     }
-    //MARK: - UserInternetServicesInfo
     
-    func getUserInternetServicesInfo(using completionHandler: (Bool) -> Void){
+    //MARK: - push to ProfileViewController
+    
+    func pushToProfileViewController(using readyToPushHandler: (Bool) -> Void){
         
-        let urlGetUsrIntServInfo: String = "https://skystat.com/api.cgi/user/"+String(loginUidSid.uid)+"/internet"
-        
-        let headersIntServInfo: HTTPHeaders = [
-            "USERSID": loginUidSid.sid,
-            "content-type": "application/json; charset=utf8"
-        ]
-        AF.request(urlGetUsrIntServInfo, headers: headersIntServInfo).responseJSON { responseInternetServices in
-            
-            let jsonDecoder = JSONDecoder()
-            do
-            {
-                let responseModelInternetServices = try! jsonDecoder.decode([UserInternetServicesModel].self,
-                                                                            from: responseInternetServices.data!)
-                print(responseModelInternetServices)
-                self.userInternetServicesInfo = responseModelInternetServices[0]
-                print(self.userInternetServicesInfo.cid)
-                
-            }
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        if let viewController = main.instantiateViewController(withIdentifier: "ProfileViewController")
+            as? ProfileViewController {
+            viewController.loginUidSidProfile = self.loginUidSid
+            viewController.myCompletionHandlerProfile = self.myCompletionHandler
+            viewController.getUserInformationWithSid(using: viewController.myCompletionHandlerProfile)
+            viewController.getUserInternetServicesInfo(using: viewController.myCompletionHandlerProfile)
+            viewController.getDepositInformation(using: viewController.myCompletionHandlerProfile)
+            self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
+    
     //MARK: - saving Login And Pass
     
     func saveLoginAndPassword(){
         let userDefaultsGet = UserDefaults.standard
         let newText = userDefaultsGet.object(forKey: "loginAndPasswordSaved") as! Bool
         print(newText)
+        
         if newText == false {
             let askingForSaveAlert = UIAlertController(title: "Skyline", message: "Сохранить логин и пароль?",
                                                        preferredStyle: UIAlertController.Style.alert)
@@ -169,12 +128,7 @@ class AutorizationScreen: UIViewController {
                                                    //print("Unable to save")
                                                    return
                                                }
-                    
                 }
-                let passwordSaved = UIAlertController(title: "Saving", message: "Password was saved",
-                                                      preferredStyle: UIAlertController.Style.alert)
-                passwordSaved.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                self.present(passwordSaved, animated: true, completion: nil)
             }))
             
             askingForSaveAlert.addAction(UIAlertAction(title: "Нет", style: .cancel, handler: { (action: UIAlertAction!) in
@@ -183,17 +137,24 @@ class AutorizationScreen: UIViewController {
             present(askingForSaveAlert, animated: true, completion: nil)
         }
     }
-    //MARK: - delete password from keychain
+    //MARK: - Button
     
-    func deleteLoginPasswordFromKeychain(){
-        do {
-            try Locksmith.deleteDataForUserAccount(userAccount: "SavedAccount")
-        } catch {
-            print("Unable to delete")
+    @IBAction func loginButtonPressed(_ sender: Any) {
+        if (login.text != "" || password.text != "") {
+            
+            passwordAutorization()
+            saveLoginAndPassword()
+            
         }
-        
+        else {
+            let alert = UIAlertController(title: "Ошибка", message: "Введите логин и пароль ",
+                                          preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
-    //MARK: FaceID TouchID
+    
+    //MARK: - FaceID TouchID
     
     private func FaceIDTouchID() {
         //                let context = LAContext()
@@ -224,8 +185,6 @@ class AutorizationScreen: UIViewController {
         //                    print("Face/Touch ID не найден")
         //                }
     }
-    
-    
 }
 
 

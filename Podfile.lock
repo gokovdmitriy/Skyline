@@ -9,12 +9,14 @@ PODS:
   - SDWebImage (5.13.0):
     - SDWebImage/Core (= 5.13.0)
   - SDWebImage/Core (5.13.0)
+  - SideMenu (6.5.0)
 
 DEPENDENCIES:
   - Alamofire
   - Locksmith
   - RealmSwift
   - SDWebImage
+  - SideMenu
 
 SPEC REPOS:
   trunk:
@@ -23,6 +25,7 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - SDWebImage
+    - SideMenu
 
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
@@ -30,7 +33,8 @@ SPEC CHECKSUMS:
   Realm: e617c54ad0f566b3d0f6a2abae7010de05f252ac
   RealmSwift: 8a516a8759d80d52ebcec1ff1076f5f5159f98b2
   SDWebImage: 0327043dbb9533e75f2eff8445b3df0f2ceca6ac
+  SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: 544f8cbf316d0ec4dc89afdf810a8f0cfb1123e9
+PODFILE CHECKSUM: 568a73bac7a19684ec00b5bbc667e532d25d5e3e
 
 COCOAPODS: 1.11.3
