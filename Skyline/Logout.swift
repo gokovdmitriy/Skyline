@@ -15,7 +15,6 @@ class Logout: UIViewController {
         SideMenuManager.default.leftMenuNavigationController = menu
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
         
-        
     }
 
     @IBAction func didTapMenu(_ sender: Any) {
@@ -34,7 +33,6 @@ func deleteLoginPasswordFromKeychain(){
         let userDefaults = UserDefaults.standard
         userDefaults.set(loginAndPasswordSaved, forKey: "loginAndPasswordSaved")
         userDefaults.resetSavedData()
-        
         
     } catch {
         print("Unable to delete")

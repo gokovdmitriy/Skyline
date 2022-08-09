@@ -103,6 +103,7 @@ class AutorizationScreen: UIViewController {
             viewController.getUserInformationWithSid(using: viewController.myCompletionHandlerProfile)
             viewController.getUserInternetServicesInfo(using: viewController.myCompletionHandlerProfile)
             viewController.getDepositInformation(using: viewController.myCompletionHandlerProfile)
+            viewController.addNotification(using: viewController.myCompletionHandlerProfile)
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }

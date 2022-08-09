@@ -32,4 +32,4 @@ var userInternetServicesInfoInternetPlus = UserInternetServicesModel(cid: "",
                                                                      id: 0,
                                                                      internetStatus: 0,
                                                                      tpId: 0,
-                                                                     dayFee: 0)
+                                                                     dayFee: 100)

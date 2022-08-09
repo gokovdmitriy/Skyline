@@ -91,7 +91,6 @@ class MenuListTableViewController: UITableViewController{
             href.deleteLoginPasswordFromKeychain()
             if let AutorizationScreenPush = main.instantiateViewController(withIdentifier: "AutorizationScreen") as?
                 AutorizationScreen{
-                
                 self.navigationController?.pushViewController(AutorizationScreenPush, animated: false)
             }
         }

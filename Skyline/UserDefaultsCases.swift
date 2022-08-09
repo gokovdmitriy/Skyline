@@ -14,6 +14,8 @@ extension UserDefaults {
         case agreementLabel
         case statusLabel
         case depositLabel
+        case daysToExpireWarning
+        case daysToExpireDaysToFee
     }
     
     func resetSavedData() {

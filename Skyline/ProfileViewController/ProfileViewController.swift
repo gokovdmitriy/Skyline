@@ -3,6 +3,7 @@
 import Locksmith
 import SideMenu
 import Alamofire
+import UserNotifications
 import UIKit
 
 class ProfileViewController: UIViewController {
@@ -71,7 +72,7 @@ class ProfileViewController: UIViewController {
         present(menu!, animated: true)
         
     }
-        
+    
     func profileViewPrinting(){
         let cornerRadius = loginStack.frame.width/loginStack.frame.height
         
@@ -101,10 +102,10 @@ class ProfileViewController: UIViewController {
         depositLabel.text = UserDefaults.standard.string(forKey: "depositLabel")
         statusStack.backgroundColor = .systemGreen
         
-       
+        
         
     }
-        
+    
     // MARK: - Get personal information
     
     func getUserInformationWithSid(using completionHandler: (Bool) -> Void){
@@ -176,7 +177,7 @@ class ProfileViewController: UIViewController {
                     statusLabel.text = "Не активно"
                     let userDefaults = UserDefaults.standard
                     userDefaults.set(self.statusLabel.text, forKey: "statusLabel")
-                        statusStack.backgroundColor = .red
+                    statusStack.backgroundColor = .red
                     
                 }
             }
@@ -214,8 +215,70 @@ class ProfileViewController: UIViewController {
             {
                 let responseModelToGetDaysToExpire = try! jsonDecoder.decode(WarningDaysToExpire.self,
                                                                              from: responseInternetServices.data!)
-                daysToExpire.warning = responseModelToGetDaysToExpire.warning
+                let userDefaults = UserDefaults.standard
+                userDefaults.set(responseModelToGetDaysToExpire.warning, forKey: "daysToExpireWarning")
+                userDefaults.set(responseModelToGetDaysToExpire.daysToFee, forKey: "daysToExpireDaysToFee")
             }
         }
     }
+    // MARK: - Local Notification
+    
+    
+    func addNotification(using completionHandler: (Bool) -> Void){
+        
+        removeNotification(withIdentifiers: ["MyUniqueIndetifier"])
+        
+        let userDefaults = UserDefaults.standard
+        let daysToExpireDaysToFee = userDefaults.double(forKey: "daysToExpireDaysToFee")
+        let bodyString = "Услуга завершится через " + String(daysToExpireDaysToFee) + " дней. Не забудьте пополнить Ваш баланс"
+        let secondsInOneDayConst = 86400.0
+        if daysToExpireDaysToFee <= 7{
+            let pushIntervalInSeconds = 3600.0
+            let date = Date(timeIntervalSinceNow: pushIntervalInSeconds)
+            let content = UNMutableNotificationContent()
+            content.title = "Skyline"
+            content.body = bodyString
+            content.sound = UNNotificationSound.default
+            
+            let calendar = Calendar(identifier: .gregorian)
+            let calendarComponents = calendar.dateComponents([.month,
+                                                              .day,
+                                                              .hour,
+                                                              .minute,
+                                                              .second], from: date)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: calendarComponents, repeats: false)
+            let request = UNNotificationRequest(identifier: "MyUniqueIndetifier ", content: content, trigger: trigger)
+            let center = UNUserNotificationCenter.current()
+            center.add(request, withCompletionHandler: nil)
+        }
+        else{
+            let pushIntervalInSeconds = (daysToExpireDaysToFee - 7)*secondsInOneDayConst
+            let date = Date(timeIntervalSinceNow: pushIntervalInSeconds)
+            let content = UNMutableNotificationContent()
+            content.title = "Skyline"
+            content.body = bodyString
+            content.sound = UNNotificationSound.default
+            
+            let calendar = Calendar(identifier: .gregorian)
+            let calendarComponents = calendar.dateComponents([.month,
+                                                              .day,
+                                                              .hour,
+                                                              .minute,
+                                                              .second], from: date)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: calendarComponents, repeats: false)
+            let request = UNNotificationRequest(identifier: "MyUniqueIndetifier ", content: content, trigger: trigger)
+            let center = UNUserNotificationCenter.current()
+            center.add(request, withCompletionHandler: nil)
+        }
+    }
+    
+    func removeNotification(withIdentifiers identifiers: [String]){
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: identifiers)
+    }
+    
+    deinit{
+        removeNotification(withIdentifiers: ["MyUniqueIndetifier"])
+    }
+    
 }
