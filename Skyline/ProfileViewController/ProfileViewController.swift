@@ -166,7 +166,7 @@ class ProfileViewController: UIViewController {
                 
                 self.userInternetServicesInfoProfile = responseModelInternetServices[0]
                 userInternetServicesInfoInternetPlus = responseModelInternetServices[0]
-                var internetStatus = self.userInternetServicesInfoProfile.internetStatus
+                let internetStatus = self.userInternetServicesInfoProfile.internetStatus
                 if internetStatus == 0{
                     statusLabel.text = "Активно"
                     let userDefaults = UserDefaults.standard

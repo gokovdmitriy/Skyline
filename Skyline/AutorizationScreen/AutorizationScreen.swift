@@ -157,33 +157,33 @@ class AutorizationScreen: UIViewController {
     //MARK: - FaceID TouchID
     
     private func FaceIDTouchID() {
-        //                let context = LAContext()
-        //                var error: NSError?
-        //
-        //                if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-        //
-        //                    let reason = "Идентифицируйте себя"
-        //                    context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason ) { success, error in
-        //
-        //                        if success {
-        //                            DispatchQueue.main.async { [unowned self] in
-        //                                print("Успешная авторизация")
-        //                                if Locksmith.loadDataForUserAccount(userAccount: <#T##String#>)
-        //                                //if !savedLoginAndPasswordWithLocksmith.isEmpty{
-        //                                    let savedLoginAndPasswordWithLocksmith = Locksmith.loadDataForUserAccount(userAccount: "SavedAccount")!
-        //                                    print(savedLoginAndPasswordWithLocksmith)
-        //                                    login.text = savedLoginAndPasswordWithLocksmith["loginTosave"] as! String
-        //                                    password.text = savedLoginAndPasswordWithLocksmith["passwordToSave"] as! String
-        //
-        //                                //}
-        //
-        //                            }
-        //                        }
-        //                    }
-        //
-        //                } else {
-        //                    print("Face/Touch ID не найден")
-        //                }
+        let context = LAContext()
+        var error: NSError?
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            
+            let reason = "Идентифицируйте себя"
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason ) { success, error in
+                
+                let userDefaultsGet = UserDefaults.standard
+                let newText = userDefaultsGet.object(forKey: "loginAndPasswordSaved") as! Bool
+                print(newText)
+                if success && newText == true {
+                    DispatchQueue.main.async { [unowned self] in
+                        print("Успешная авторизация")
+                        let savedLoginAndPasswordWithLocksmith = Locksmith.loadDataForUserAccount(userAccount: "SavedAccount")!
+                        print(savedLoginAndPasswordWithLocksmith)
+                        login.text = savedLoginAndPasswordWithLocksmith["loginToSave"] as? String
+                        password.text = savedLoginAndPasswordWithLocksmith ["passwordToSave"] as? String
+                        passwordAutorization()
+                        saveLoginAndPassword()
+                    }
+                }
+            }
+            
+        } else {
+            print("Face/Touch ID не найден")
+        }
     }
 }
 
